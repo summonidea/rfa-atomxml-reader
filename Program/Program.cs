@@ -20,7 +20,7 @@ namespace Program
             var watch = new System.Diagnostics.Stopwatch();
             watch.Start();
 
-            string path = @"C:\Users\Dat\Desktop\SAT\__working\family\_CFA_GEN_10_Play Medium.rfa";
+            string path = @"C:\Users\Dat\Desktop\SAT\__working\family\box.rfa";
             //Extract AtomXml from Rfa
             string atomXml = ExtractAtomXmlFromRfa(path);
             //Console.WriteLine(atomXml);
@@ -78,7 +78,6 @@ namespace Program
                 if (lineEncoded.Contains(startString))
                 {
                     //Console.WriteLine("start string {0} found in the following line:\n{1}", startString, lineEncoded);
-
                     startStringFound = true;
                 }
                 if (startStringFound)
@@ -90,17 +89,13 @@ namespace Program
                         int startIndex = chunks.IndexOf(startString);
                         int endIndex = chunks.IndexOf(endString);
                         xml = chunks.Substring(startIndex, endIndex + endString.Length - startIndex);
-
                         //Console.WriteLine(xml);
-
                         endStringFound = true;
-
                     }
                 }
             }
             //XmlDocument xmlDoc = new XmlDocument();
             //xmlDoc.LoadXml(xml);
-
             return xml;
         }
                 
